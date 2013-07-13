@@ -37,3 +37,7 @@ Inject test dependencies with [@Resource](src/main/java/com/syamantakm/annotatio
         ....
     }
 
+Based on the test need, a new implementation of the following providers/interfaces may be required
+    *[UrlProvider](src/main/java/com/syamantakm/api/UrlProvider.java) - provides URL(s) to be tested
+    *[DataProvider](src/main/java/com/syamantakm/api/DataProvider.java) - provides json to be tested(for put/post etc.)
+    *[HeaderProvider](src/main/java/com/syamantakm/api/HeaderProvider.java) - provides http headers required for each http call( application/json, test/plain etc.)
