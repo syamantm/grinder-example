@@ -15,18 +15,18 @@ Overview
 
 ### Key Concepts
 
-*single script to bridge between java and jython
-*Pico container to inject dependencies to Test Runner.
+* single script to bridge between java and jython
+* Pico container to inject dependencies to Test Runner.
 
 ### Usage
 
-Create a test runner by extending [AbstractTestRunner.java](src/main/java/com/syamantakm/grinder/AbstractTestRunner.java)
+* Create a test runner by extending [AbstractTestRunner.java](src/main/java/com/syamantakm/grinder/AbstractTestRunner.java)
 
     public class HttpGetTestRunner extends AbstractTestRunner {
     ....
     }
 
-Inject test dependencies with [@Resource](src/main/java/com/syamantakm/annotation/Resource.java) annotation
+* Inject test dependencies with [@Resource](src/main/java/com/syamantakm/annotation/Resource.java) annotation
 
     public class HttpGetTestRunner extends AbstractTestRunner {
         ....
@@ -37,7 +37,7 @@ Inject test dependencies with [@Resource](src/main/java/com/syamantakm/annotatio
         ....
     }
 
-Based on the test need, a new implementation of the following providers/interfaces may be required
-    *[UrlProvider](src/main/java/com/syamantakm/api/UrlProvider.java) - provides URL(s) to be tested
-    *[DataProvider](src/main/java/com/syamantakm/api/DataProvider.java) - provides json to be tested(for put/post etc.)
-    *[HeaderProvider](src/main/java/com/syamantakm/api/HeaderProvider.java) - provides http headers required for each http call( application/json, test/plain etc.)
+* Based on the test need, a new implementation of the following providers/interfaces may be required
+    * [UrlProvider](src/main/java/com/syamantakm/api/UrlProvider.java) - provides URL(s) to be tested
+    * [DataProvider](src/main/java/com/syamantakm/api/DataProvider.java) - provides json to be tested(for put/post etc.)
+    * [HeaderProvider](src/main/java/com/syamantakm/api/HeaderProvider.java) - provides http headers required for each http call( application/json, test/plain etc.)
