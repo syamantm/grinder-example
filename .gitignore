@@ -1,5 +1,11 @@
 *.class
 
+.idea/
+*.log
+*.sql
+*.sqlite
+*.iml
+
 # Package Files #
 *.jar
 *.war
