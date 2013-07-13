@@ -23,20 +23,20 @@ Overview
 
 * Create a test runner by extending [AbstractTestRunner.java](src/main/java/com/syamantakm/grinder/AbstractTestRunner.java):
 
-    public class HttpGetTestRunner extends AbstractTestRunner {
-    ....
-    }
+        public class HttpGetTestRunner extends AbstractTestRunner {
+        ....
+        }
 
 * Inject test dependencies with [@Resource](src/main/java/com/syamantakm/annotation/Resource.java) annotation :
 
-    public class HttpGetTestRunner extends AbstractTestRunner {
-        ....
+        public class HttpGetTestRunner extends AbstractTestRunner {
+            ....
 
-        @Resource
-        private UrlProvider urlProvider;
+            @Resource
+            private UrlProvider urlProvider;
 
-        ....
-    }
+            ....
+        }
 
 * Based on the test need, a new implementation of the following providers/interfaces may be required:
     * [UrlProvider](src/main/java/com/syamantakm/api/UrlProvider.java) - provides URL(s) to be tested.
@@ -45,8 +45,8 @@ Overview
 
 * Define the test runner and dependency classes in grinder properties(under src/test/grinder), e,g [http-get.properties](src/test/grinder/http-get.properties):
 
-    ......
-    java_test_runner = com.syamantakm.grinder.HttpGetTestRunner
-    resource_classes=com.syamantakm.dao.SimpleJdbcDao;net.grinder.plugin.http.HTTPRequest;com.syamantakm.impl.HttpGetUrlProvider
-    .....
+        ......
+        java_test_runner = com.syamantakm.grinder.HttpGetTestRunner
+        resource_classes=com.syamantakm.dao.SimpleJdbcDao;net.grinder.plugin.http.HTTPRequest;com.syamantakm.impl.HttpGetUrlProvider
+        .....
 
