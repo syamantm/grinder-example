@@ -45,6 +45,8 @@ Overview
 
 * Define the test runner and dependency classes in grinder properties(under src/test/grinder), e,g [http-get.properties](src/test/grinder/http-get.properties):
 
+    #grinder properties file
+    ......
     java_test_runner = com.syamantakm.grinder.HttpGetTestRunner
     resource_classes=com.syamantakm.dao.SimpleJdbcDao;net.grinder.plugin.http.HTTPRequest;com.syamantakm.impl.HttpGetUrlProvider
     .....
