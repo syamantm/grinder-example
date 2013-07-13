@@ -8,6 +8,9 @@ References
 ------------
 
 [The Grinder 3.11](http://grinder.sourceforge.net/)
+
+[PicoContainer](http://picocontainer.codehaus.org/)
+
 [The Grinder with java](http://kjetilvalle.com/posts/java-grinder-tests.html)
 
 
@@ -17,7 +20,23 @@ Overview
 ### Key Concepts
 
 * single script to bridge between java and jython
-* Pico container to inject dependencies to Test Runner.
+* Pico cdependent_class_prop = grinder.getProperties().getProperty('resource_classes')
+
+print dependent_class_prop
+
+dependent_classes = []
+for dep_c in dependent_class_prop.split(';'):
+    dep_class = load_class(dep_c)
+    print dep_class
+    dependent_classes.append(dep_class)
+
+class TestRunner:
+
+    def __init__(self):
+        pico = DefaultPicoContainer(AnnotatedFieldInjection(Resource));
+
+        for dep_class in dependent_classes:
+            pico.addComponent(dep_class);ontainer to inject dependencies to Test Runner.
 
 ### Usage
 
@@ -50,3 +69,5 @@ Overview
         resource_classes=com.syamantakm.dao.SimpleJdbcDao;net.grinder.plugin.http.HTTPRequest;com.syamantakm.impl.HttpGetUrlProvider
         .....
 
+
+* [grinder_pico.py](src/test/grinder/grinder_pico.py) will inject all the dependencies to the test runner class using PicoContainer, which is available with grinder.
