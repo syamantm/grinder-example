@@ -19,7 +19,7 @@ Overview
 
 ### Key Concepts
 
-* single script to bridge between java and jython
+* Single script to bridge between java and jython
 * Pico container to inject dependencies to Test Runner.
 
 ### Usage
