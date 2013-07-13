@@ -1,7 +1,7 @@
 grinder-example
 ===============
 
-Load test example with The Grinder, java, pico
+Load test example with The Grinder with java, dependency injection with PicoContainer
 
 
 References
