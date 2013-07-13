@@ -22,7 +22,7 @@ public class HttpGetTestRunner extends AbstractTestRunner {
 
     public void call() throws Exception {
         List<String> urls = urlProvider.getUrl(5);
-        for(String url : urls) {
+        for (String url : urls) {
             this.test.GET(url);
         }
     }

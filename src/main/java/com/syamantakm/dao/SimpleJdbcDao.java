@@ -22,7 +22,7 @@ public class SimpleJdbcDao {
             PreparedStatement stmt = conn.prepareStatement(SQL_SELECT_CACHE_ENTRY);
             stmt.setInt(1, limit);
             ResultSet rs = stmt.executeQuery();
-            while(rs.next()) {
+            while (rs.next()) {
                 cacheEntryIds.add(rs.getInt("id"));
             }
 

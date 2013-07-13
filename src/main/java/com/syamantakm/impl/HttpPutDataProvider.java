@@ -14,7 +14,7 @@ public class HttpPutDataProvider implements DataProvider<String> {
     @Override
     public byte[] getData(String param) {
         String json = String.format(JSON_TEMPLATE, param);
-        LOGGER.info(String.format("data : %s" ,json));
+        LOGGER.info(String.format("data : %s", json));
         return json.getBytes();
     }
 }

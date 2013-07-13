@@ -33,7 +33,7 @@ public class HttpPutTestRunner extends AbstractTestRunner {
 
     public void call() throws Exception {
         List<String> urls = urlProvider.getUrl(5);
-        for(String url : urls) {
+        for (String url : urls) {
             NVPair[] headers = getHeaders(headerProvider.getHttpHeaders());
             byte[] data = dataProvider.getData("lt-" + System.currentTimeMillis());
             this.test.PUT(url, data, headers);
@@ -42,7 +42,7 @@ public class HttpPutTestRunner extends AbstractTestRunner {
 
     private NVPair[] getHeaders(Map<String, String> headerMap) {
         List<NVPair> headers = new ArrayList<>();
-        for(Map.Entry<String, String> entry : headerMap.entrySet()) {
+        for (Map.Entry<String, String> entry : headerMap.entrySet()) {
             NVPair pair = new NVPair(entry.getKey(), entry.getValue());
             headers.add(pair);
         }

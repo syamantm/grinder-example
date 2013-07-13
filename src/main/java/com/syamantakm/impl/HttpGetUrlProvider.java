@@ -20,14 +20,14 @@ public class HttpGetUrlProvider implements UrlProvider<Integer> {
     private SimpleJdbcDao jdbcDao;
 
     public HttpGetUrlProvider() {
-         LOGGER.info("@HttpGetUrlProvider()");
+        LOGGER.info("@HttpGetUrlProvider()");
     }
 
     @Override
     public List<String> getUrl(Integer param) {
         List<String> urls = new ArrayList<>();
         List<Integer> ids = jdbcDao.getCacheEntryIds(param);
-        for(int id : ids) {
+        for (int id : ids) {
             urls.add(String.format(URL_TEMPLATE, id));
         }
         return urls;
