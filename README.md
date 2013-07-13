@@ -20,23 +20,7 @@ Overview
 ### Key Concepts
 
 * single script to bridge between java and jython
-* Pico cdependent_class_prop = grinder.getProperties().getProperty('resource_classes')
-
-print dependent_class_prop
-
-dependent_classes = []
-for dep_c in dependent_class_prop.split(';'):
-    dep_class = load_class(dep_c)
-    print dep_class
-    dependent_classes.append(dep_class)
-
-class TestRunner:
-
-    def __init__(self):
-        pico = DefaultPicoContainer(AnnotatedFieldInjection(Resource));
-
-        for dep_class in dependent_classes:
-            pico.addComponent(dep_class);ontainer to inject dependencies to Test Runner.
+* Pico container to inject dependencies to Test Runner.
 
 ### Usage
 
@@ -71,3 +55,23 @@ class TestRunner:
 
 
 * [grinder_pico.py](src/test/grinder/grinder_pico.py) will inject all the dependencies to the test runner class using PicoContainer, which is available with grinder.
+
+        ....
+        dependent_class_prop = grinder.getProperties().getProperty('resource_classes')
+
+        print dependent_class_prop
+
+        dependent_classes = []
+        for dep_c in dependent_class_prop.split(';'):
+            dep_class = load_class(dep_c)
+            print dep_class
+            dependent_classes.append(dep_class)
+
+        class TestRunner:
+
+            def __init__(self):
+                pico = DefaultPicoContainer(AnnotatedFieldInjection(Resource));
+
+                for dep_class in dependent_classes:
+                    pico.addComponent(dep_class)
+        ......

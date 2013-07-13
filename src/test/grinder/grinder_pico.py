@@ -28,7 +28,7 @@ class TestRunner:
         pico = DefaultPicoContainer(AnnotatedFieldInjection(Resource));
 
         for dep_class in dependent_classes:
-            pico.addComponent(dep_class);
+            pico.addComponent(dep_class)
         pico.addComponent(test_runner)
 
         self.runner = pico.getComponent(test_runner)
