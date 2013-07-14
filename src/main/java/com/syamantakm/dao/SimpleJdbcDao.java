@@ -1,5 +1,7 @@
 package com.syamantakm.dao;
 
+import com.syamantakm.annotation.Resource;
+import com.syamantakm.util.PropertyHolder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,10 +17,18 @@ public class SimpleJdbcDao {
 
     public static final String SQL_SELECT_CACHE_ENTRY = "SELECT id FROM cache_entry LIMIT ?";
 
+    @Resource
+    private PropertyHolder propertyHolder;
+
     public List<Integer> getCacheEntryIds(int limit) {
         List<Integer> cacheEntryIds = new ArrayList<>();
         try {
-            Connection conn = getConnection();
+            Connection conn = getConnection(
+                    propertyHolder.getJdbcDriverClass(),
+                    propertyHolder.getJdbcUrl(),
+                    propertyHolder.getJdbcUsername(),
+                    propertyHolder.getJdbcPassword()
+            );
             PreparedStatement stmt = conn.prepareStatement(SQL_SELECT_CACHE_ENTRY);
             stmt.setInt(1, limit);
             ResultSet rs = stmt.executeQuery();
@@ -37,10 +47,11 @@ public class SimpleJdbcDao {
         return cacheEntryIds;
     }
 
-    private Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/cache_dao", "admin", "admin");
-        LOGGER.info("JDBC Connection created to : " + conn.getSchema());
+    private Connection getConnection(String driverClass, String jdbcUrl,
+                                     String username, String pass) throws ClassNotFoundException, SQLException {
+        Class.forName(driverClass);
+        Connection conn = DriverManager.getConnection(jdbcUrl, username, pass);
+        LOGGER.info("JDBC Connection created to : " + jdbcUrl);
         return conn;
     }
 }
